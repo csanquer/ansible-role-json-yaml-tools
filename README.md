@@ -1,2 +1,4 @@
-# ansible-json-yaml-tools
+ansible-role-json-yaml-tools
+============================
+
 Ansible role to install JSON and YAML CLI tools like jq or yq
