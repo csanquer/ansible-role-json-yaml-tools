@@ -1,0 +1,34 @@
+---
+- name: get yq version
+  shell: "yq --version"
+  register: yq_result
+  ignore_errors: yes
+
+- name: set yq current version fact
+  set_fact:
+      yq_current_version: "{{ yq_result.stdout|default('')|replace('yq version ','') }}"
+
+- name: get latest stable yq tag
+  uri:
+    url: "{{ yq_release_api_url }}"
+  ignore_errors: yes
+  register: yq_github_result
+  when: yq_version == 'latest'
+
+- name: set yq version fact
+  set_fact:
+       yq_version: "{{ yq_github_result.json.tag_name|default(yq_default_version)|replace('v','') }}"
+  when: yq_version == 'latest'
+
+- name: set yq version fact
+  set_fact:
+    yq_version: "{{ yq_default_version }}"
+  when: yq_version == '' or yq_version is none
+
+- name: "download yq binary {{ yq_version }}"
+  get_url:
+      url: "{{ yq_base_url }}/{{ yq_version }}/yq_linux_amd64"
+      dest: "/usr/local/bin/yq"
+      mode: 0755
+      force: yes
+  when: yq_current_version != yq_version

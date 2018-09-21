@@ -1,0 +1,5 @@
+---
+- name: install jq
+  apt:
+    name: jq
+    state: "{{ jq_version if jq_version == 'latest' else 'present' }}"

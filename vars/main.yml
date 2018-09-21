@@ -1,0 +1,4 @@
+---
+yq_default_version: '2.1.1'
+yq_release_api_url: https://api.github.com/repos/mikefarah/yq/releases/latest
+yq_base_url: https://github.com/mikefarah/yq/releases/download

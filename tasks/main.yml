@@ -1,0 +1,10 @@
+---
+- include: install_json.yml
+  tags:
+  - json_yaml_tools
+  - json_tools
+
+- include: install_yaml.yml
+  tags:
+  - json_yaml_tools
+  - yaml_tools
