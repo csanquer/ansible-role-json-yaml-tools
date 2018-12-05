@@ -15,12 +15,12 @@
   register: yq_github_result
   when: yq_version == 'latest'
 
-- name: set yq version fact
+- name: set yq version fact to latest
   set_fact:
        yq_version: "{{ yq_github_result.json.tag_name|default(yq_default_version)|replace('v','') }}"
   when: yq_version == 'latest'
 
-- name: set yq version fact
+- name: set yq version fact to default
   set_fact:
     yq_version: "{{ yq_default_version }}"
   when: yq_version == '' or yq_version is none
