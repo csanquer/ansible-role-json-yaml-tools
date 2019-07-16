@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Charles Sanquer
+  description: install JQ (JSON) and YQ (YAML) CLI tools
+  min_ansible_version: 2.6
+  license: LGPLv3
+  github_branch: master
+  platforms:
+  - name: Ubuntu
+    versions:
+      - all
+
+  galaxy_tags: []
+
+dependencies: []

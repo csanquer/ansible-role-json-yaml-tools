@@ -1,6 +1,6 @@
 ---
-- name: get yq version
-  shell: "yq --version"
+- name: get yq version # noqa 301
+  command: "yq --version"
   register: yq_result
   ignore_errors: yes
 
@@ -23,7 +23,7 @@
 - name: set yq version fact to default
   set_fact:
     yq_version: "{{ yq_default_version }}"
-  when: yq_version == '' or yq_version is none
+  when: not yq_version
 
 - name: "download yq binary {{ yq_version }}"
   get_url:

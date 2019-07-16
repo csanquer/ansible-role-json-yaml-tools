@@ -1,0 +1,9 @@
+exclude_paths: []
+parseable: false
+quiet: false
+rulesdir: []
+skip_list: []
+#  - '204'
+tags: []
+use_default_rules: true
+verbosity: 0
