@@ -27,7 +27,7 @@
 
 - name: "download yq binary {{ yq_version }}"
   get_url:
-      url: "{{ yq_base_url }}/{{ yq_version }}/yq_linux_amd64"
+      url: "{{ yq_base_url }}/v{{ yq_version }}/yq_linux_amd64"
       dest: "/usr/local/bin/yq"
       mode: 0755
       force: yes
