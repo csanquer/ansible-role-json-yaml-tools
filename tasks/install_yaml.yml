@@ -3,6 +3,7 @@
   command: "yq --version"
   register: yq_result
   ignore_errors: yes
+  changed_when: false
 
 - name: set yq current version fact
   set_fact:
